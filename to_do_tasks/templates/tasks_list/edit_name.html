@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Name {% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container" class="form-group">
+    <div class="jumbotron mt-5">
+
+        <center>
+            <form method="POST" class="form-group">
+                {{ form.hidden_tag() }}
+
+                {{ form.new_name.label }}
+                {{ form.new_name() }}
+
+                {{ form.submit() }}
+
+
+            </form>
+        </center>
+
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Task {% endblock %}
+
+
+{% block content %}
+<div class="container" class="form-group">
+    <div class="jumbotron mt-5">
+
+
+        <form method="POST" class="form-group">
+            {{ form.hidden_tag() }}
+            
+                {{ form.new_name.label }}
+                <br>
+                {{ form.new_name() }}
+                <br>
+                <hr>
+            
+                {{ form.new_description.label }}
+                <br>
+                {{ form.new_description() }}
+                <hr>
+            
+            
+               
+            {{form.priority.label}}{{ form.priority()}}
+            <hr>
+            {{form.status.label}}{{ form.status()}}
+            <center>
+                {{ form.submit() }}
+            </center>
+
+
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

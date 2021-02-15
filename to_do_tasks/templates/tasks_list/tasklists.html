@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} TaskLists {% endblock %}
+
+
+{% block content %}
+
+<div class="container" class="form-group">
+    <center>
+        <div class="jumbotron mt-3">
+            <h5>Task Lists <a href="/sort_list" class="btn btn-secondary" type="submit" role="button"><i
+                        class="fas fa-sort"></i>
+                    Sort</a> </h5>
+        </div>
+    </center>
+
+    <div class="jumbotron mt-3">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in lists %}
+                <tr>
+                    <th scope="row">{{list['id']}}</th>
+                    <td>{{list['name']}}</td>
+                    <td>{{list['last_updated']}}</td>
+                    <td>{{list['created_at']}}</td>
+                    <td><a href="/tasks/{{list['id']}}" class="btn btn-secondary" title="Show" type="submit"
+                            role="button"><i class="far fa-eye"></i></a>
+                        <a href="/deletetasklist/{{list['id']}}" class="btn btn-secondary" title="Delete" type="submit"
+                            role="button"><i class="fas fa-trash"></i></a>
+                        <a href="/editname/{{list['id']}}" class="btn btn-secondary" title="Edit" type="submit"
+                            role="button"><i class="fas fa-user-edit"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <center>
+            <a href="/createtasklist" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>
+                Create New TaskList</a>
+        </center>
+    </div>
+
+</div>
+
+{% endblock %}
